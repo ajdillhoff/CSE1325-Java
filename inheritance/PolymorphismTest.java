@@ -17,5 +17,13 @@ public class PolymorphismTest {
         for (var creature : creatures) {
             System.out.println(creature);
         }
+
+//        Monster m = (Monster) creatures.get(0);  // ClassCastException
+
+        if (creatures.get(0) instanceof Monster) {
+            System.out.println("There's a Monster at index 0.");
+        } else {
+            System.out.println("There is no Monster at index 0.");
+        }
     }
 }
