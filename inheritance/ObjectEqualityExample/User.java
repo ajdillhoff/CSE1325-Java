@@ -15,9 +15,7 @@ public class User {
         // If `o` is null or of a different class, they're certainly not equal
         if (o == null || getClass() != o.getClass()) return false;
 
-        User user = (User) o;
-
         // They're equal if the IDs are the same
-        return id == user.id;
+        return id == ((User) o).id;
     }
 }
