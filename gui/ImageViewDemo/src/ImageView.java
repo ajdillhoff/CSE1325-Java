@@ -22,7 +22,7 @@ public class ImageView extends JPanel {
         super.paintComponent(g);
 
         if (img != null) {
-            g.drawImage(img, 0, 0, getWidth(), getHeight(), null);
+            g.drawImage(img, 0, 0, null);
         }
     }
 }

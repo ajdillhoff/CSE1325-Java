@@ -23,7 +23,7 @@ public class GridBagLayoutExample extends JFrame {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 1;
-        c.weighty = 0.1;
+        c.weighty = 0.5;
         add(button1, c);
 
         // Configure second button with constraints
@@ -31,7 +31,7 @@ public class GridBagLayoutExample extends JFrame {
         c.anchor = GridBagConstraints.PAGE_END;
         c.gridx = 0;
         c.gridy = 2;
-        c.weighty = 1;
+        c.weighty = 0.5;
         add(button2, c);
 
         setTitle("GridBagLayoutExample");

@@ -7,7 +7,7 @@ public class FlowLayoutExample extends JFrame {
         add(new JButton("Button1"));
         add(new JButton("Button2"));
 
-        setLayout(new FlowLayout(FlowLayout.CENTER));
+        setLayout(new FlowLayout(FlowLayout.LEFT));
 
         setSize(400, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

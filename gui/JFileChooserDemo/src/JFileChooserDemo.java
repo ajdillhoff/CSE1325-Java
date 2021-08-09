@@ -30,9 +30,9 @@ public class JFileChooserDemo extends JFrame implements DocumentListener, Action
         textArea = new JTextArea();
         textArea.getDocument().addDocumentListener(this);
         JScrollBar scrollBar = new JScrollBar();
-        scrollBar.add(textArea, BorderLayout.CENTER);
+        scrollBar.add(textArea);
 
-        add(textArea);
+        add(textArea, BorderLayout.CENTER);
 
         setVisible(true);
     }

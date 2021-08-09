@@ -29,10 +29,10 @@ public class FileOpThreadExample extends JFrame implements DocumentListener, Act
 
         textArea = new JTextArea();
         textArea.getDocument().addDocumentListener(this);
-        JScrollBar scrollBar = new JScrollBar();
-        scrollBar.add(textArea, BorderLayout.CENTER);
+        JScrollPane scrollBar = new JScrollPane(textArea);
+        textArea.setLineWrap(true);
 
-        add(textArea);
+        add(scrollBar);
 
         setVisible(true);
     }
@@ -77,6 +77,8 @@ public class FileOpThreadExample extends JFrame implements DocumentListener, Act
             return;
         }
 
+        String textData = textArea.getText();
+
         if (!hasFile) {
             JFileChooser fileChooser = new JFileChooser(".");
             fileChooser.setFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
@@ -87,12 +89,12 @@ public class FileOpThreadExample extends JFrame implements DocumentListener, Act
                 documentName = p.getFileName().toString();
 
                 // Write the data to the file
-                writeData();
+                FileOpUtilities.writeData(this, fileName, textData);
                 hasFile = true;
             }
         } else {
             // Write the data to the file
-            writeData();
+            FileOpUtilities.writeData(this, fileName, textData);
         }
     }
 
@@ -136,17 +138,6 @@ public class FileOpThreadExample extends JFrame implements DocumentListener, Act
         }
     }
 
-    private void writeData() {
-        try (PrintWriter writer = new PrintWriter(fileName)) {
-            writer.print(textArea.getDocument().getText(0, textArea.getDocument().getLength()));
-        } catch (FileNotFoundException | BadLocationException e) {
-            e.printStackTrace();
-        }
-
-        isSaved = true;
-        setTitle(getWindowTitle());
-    }
-
     @Override
     public void insertUpdate(DocumentEvent documentEvent) {
         isSaved = false;
@@ -177,6 +168,11 @@ public class FileOpThreadExample extends JFrame implements DocumentListener, Act
             case "Save":
                 // Save the file
                 saveFile();
+                break;
+            case "File Saved":
+                System.out.println("File is saved from background thread!");
+                isSaved = true;
+                setTitle(getWindowTitle());
                 break;
         }
     }
