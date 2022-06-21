@@ -10,4 +10,8 @@ public abstract class Shape {
     }
 
     public abstract void draw();
+
+    public final boolean isShape() {
+        return true;
+    }
 }

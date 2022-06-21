@@ -9,4 +9,10 @@ public class Square extends Shape {
     public void draw() {
         System.out.println("Drawing a Square...");
     }
+
+    // Cannot do this since it was declared `final` in `Shape`
+//    @Override
+//    public boolean isShape() {
+//        return false;
+//    }
 }
