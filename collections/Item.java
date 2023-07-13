@@ -10,6 +10,10 @@ public class Item {
         name = n;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Item{" +
