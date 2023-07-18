@@ -29,10 +29,9 @@ public class JFileChooserDemo extends JFrame implements DocumentListener, Action
 
         textArea = new JTextArea();
         textArea.getDocument().addDocumentListener(this);
-        JScrollBar scrollBar = new JScrollBar();
-        scrollBar.add(textArea);
-
-        add(textArea, BorderLayout.CENTER);
+        textArea.setLineWrap(true); // Add word wrap
+        JScrollPane scrollPane = new JScrollPane(textArea); // Add scrolling
+        add(scrollPane, BorderLayout.CENTER);
 
         setVisible(true);
     }
