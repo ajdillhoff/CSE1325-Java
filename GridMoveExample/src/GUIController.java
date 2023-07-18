@@ -51,12 +51,9 @@ public class GUIController implements SpriteMoveListener {
         Player player = players.get(id);
         int dx = Math.abs(p.x - player.getX());
         int dy = Math.abs(p.y - player.getY());
-        int min = Math.min(dx, dy);
-        int max = Math.max(dx, dy);
-        int diagonalSteps = min;
-        int straightSteps = max - min;
+        int diagonalSteps = Math.min(dx, dy);
 
-        int distance = (int) (Math.sqrt(2) * diagonalSteps + straightSteps);
+        int distance = dx + dy - diagonalSteps;
 
         System.out.println("Distance = " + distance);
 
